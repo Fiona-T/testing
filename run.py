@@ -14,8 +14,13 @@ print(corona_dataset_csv.head())
 print(corona_dataset_csv.shape)
 # returns the rows and columns in a tuple e.g. (266, 104)
 
-df = corona_dataset_csv.drop(["Lat", "Long"], axis=1, inplace=True)
+df = corona_dataset_csv.drop(["Lat", "Long"], axis=1)
 # without inplace=True, it creates a copy without those columns
+# removed inplace=True from the above, so that can put the new dataframe to csv
+# "Datasets/result.csv"
+location = input("please enter the file name")
+df.to_csv(f"Datasets/{location}.csv")
+# put the results into a new csv file
 
 corona_dataset_aggregated = corona_dataset_csv.groupby("Country/Region").sum()
 # adds up the rows by this column - as there were multiple rows by country
