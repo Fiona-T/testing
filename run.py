@@ -29,6 +29,9 @@ print(corona_dataset_aggregated.shape)
 # now returns 187 rows and 100 columns
 print(corona_dataset_aggregated.loc["China"])
 # gets the data from that row
+china = corona_dataset_aggregated.loc["China"]
+china.to_csv("Datasets/china.csv")
+# putting that row into a new file
 
 # corona_dataset_aggregated.loc["China"].plot()
 # # shows a graph with the data plotted - matplotlibs
